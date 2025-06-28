@@ -2,7 +2,7 @@ from telegram.ext import Updater, CommandHandler, Filters, ChatMemberHandler
 import random
 from telegram.error import Unauthorized
 
-ADMINS = {1705618342, 1361096971}  # <-- Replace with your admin Telegram user ID(s)
+ADMINS = set(map(int, os.environ.get("ADMINS", "").split(",")))  # <-- Replace with your admin Telegram user ID(s)
 pairing_pool = {}     # {chat_id: [(user_id, full_name)]}
 numbered_map = {}     # {chat_id: [(number, name)]}
 left_users = {}       # {chat_id: set((user_id, full_name))}
@@ -152,7 +152,7 @@ def start(update, context):
     )
 
 def main():
-    TOKEN = '8123095363:AAGSy7z89za86dJWdOyk0nGnrDgmEI70IOw'  # <-- Place your bot token here
+    TOKEN = os.environ["TOKEN"]  # <-- Place your bot token here
     updater = Updater(TOKEN, use_context=True)
     dp = updater.dispatcher
     dp.add_handler(CommandHandler("start", start))
