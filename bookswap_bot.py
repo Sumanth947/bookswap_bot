@@ -2,6 +2,12 @@ import os
 from telegram.ext import Updater, CommandHandler, Filters, ChatMemberHandler
 import random
 from telegram.error import Unauthorized
+import warnings
+warnings.filterwarnings(
+    "ignore",
+    message="pkg_resources is deprecated as an API",
+    category=UserWarning,
+)
 
 ADMINS = set(map(int, os.environ.get("ADMINS", "").split(",")))  # <-- Replace with your admin Telegram user ID(s)
 pairing_pool = {}     # {chat_id: [(user_id, full_name)]}
