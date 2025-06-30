@@ -3,3 +3,4 @@ flask
 urllib3<2                        # so you get a compatible urllib3 install
 standard-imghdr                  # if you still need imghdr on Python 3.13
 setuptools<81
+setuptools<81
