@@ -1,3 +1,4 @@
+import os
 from telegram.ext import Updater, CommandHandler, Filters, ChatMemberHandler
 import random
 from telegram.error import Unauthorized
