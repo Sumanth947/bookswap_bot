@@ -161,7 +161,7 @@ def start(update, context):
 def main():
     TOKEN = os.environ["TOKEN"]  # <-- Place your bot token here
     updater = Updater(TOKEN, use_context=True)
-     updater.bot.delete_webhook()
+    updater.bot.delete_webhook()
     dp = updater.dispatcher
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("join", join, filters=Filters.chat_type.groups))
